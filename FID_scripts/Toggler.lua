@@ -16,7 +16,7 @@ function Tg.constructor(scene)
 	function new:checker()
 		local lastk = self.keydown
 		if 0x3B <= HotKey and HotKey <= 0x58 then --listener are only enabled for these F keys
-			return soku.checkFKey(HotKey, mod_alt, mod_shift, mod_ctrl)
+			return soku.checkFKey(HotKey, mod_shift, mod_alt, mod_ctrl)
 		else
 			self.keydown = memory.readbytes(0x8a01b8 + HotKey, 1) == "\x80"
 			if self.keydown and lastk == false then
@@ -42,3 +42,4 @@ return setmetatable(Tg, {
 		return t.constructor(...)
 	end,
 })
+
